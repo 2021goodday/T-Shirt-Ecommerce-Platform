@@ -44,6 +44,18 @@
             </div>
         </div>
     </div>
+
+    <script>
+                // event listeners for the buttons
+                document.getElementById('signIn').addEventListener('click', function () {
+                    window.location.href = 'http://localhost/ecommerce/public/auth/admin/login';
+                });
+
+                document.getElementById('signUp').addEventListener('click', function () {
+                    window.location.href = 'http://localhost/ecommerce/public/auth/admin/register';
+                });
+            </script>
+
 </div>
 
 <script>

@@ -4,9 +4,26 @@
 <head>
     <link rel="stylesheet" href="/ecommerce/public/css/auth-style.css">
     <link rel="stylesheet" href="/ecommerce/public/css/navbar-style.css">
-    
+
     <script src="/ecommerce/public/js/auth-script.js" defer></script>
 
+    <script>
+        // Function to toggle forms based on URL
+        function toggleFormBasedOnURL() {
+            const container = document.getElementById('container');
+            const currentPath = window.location.pathname;
+
+            if (currentPath.includes('/auth/customer/register')) {
+                // Show Register Form
+                container.classList.add('right-panel-active');
+            } else if (currentPath.includes('/auth/customer/login')) {
+                // Show Login Form
+                container.classList.remove('right-panel-active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', toggleFormBasedOnURL);
+    </script>
 </head>
 
 <body>
@@ -23,7 +40,8 @@
                     <input type="text" name="name" placeholder="Name" required />
                     <input type="email" name="email" placeholder="Email" required />
                     <input type="password" id="password" name="password" placeholder="Password" required />
-                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required />
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password"
+                        required />
                     <span id="passwordError" style="color: red; display: none;">Passwords do not match!</span>
                     <button type="submit">Register</button>
                 </form>
@@ -56,6 +74,18 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                // event listeners for the buttons
+                document.getElementById('signIn').addEventListener('click', function () {
+                    window.location.href = 'http://localhost/ecommerce/public/auth/customer/login';
+                });
+
+                document.getElementById('signUp').addEventListener('click', function () {
+                    window.location.href = 'http://localhost/ecommerce/public/auth/customer/register';
+                });
+            </script>
+
         </div>
     </div>
     <script>
