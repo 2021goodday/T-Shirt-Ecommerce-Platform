@@ -54,10 +54,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed; /* Fix the navbar to the top */
+  position: fixed; 
   top: 0;
   width: 100%;
-  z-index: 1000; /* Ensure it appears above other elements */
+  z-index: 1000;
 }
 .logo a {
   font-size: xx-large;

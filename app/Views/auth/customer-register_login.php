@@ -1,7 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <link rel="stylesheet" href="/ecommerce/public/css/navbar-style.css">
 <link rel="stylesheet" href="/ecommerce/public/css/auth-style.css">
 <script src="/ecommerce/public/js/auth-script.js" defer></script>
-<?php include(APPPATH . 'Views/shared/navbar.php'); ?>
+</head>
+<body>
+<header>
+        <?php include(APPPATH . 'Views/shared/navbar.php'); ?>
+    </header>
 <div class="container-wrapper">
 <div class="container" id="container">
     <!-- Register Form -->
@@ -61,3 +68,5 @@
         return true;
     }
 </script>
+</body>
+</html>
