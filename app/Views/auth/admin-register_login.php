@@ -1,7 +1,35 @@
-<link rel="stylesheet" href="/ecommerce/public/css/auth-style.css">
-<link rel="stylesheet" href="/ecommerce/public/css/navbar-style.css">
-<script src="/ecommerce/public/js/auth-script.js" defer></script>
-<?php include(APPPATH . 'Views/shared/navbar.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/ecommerce/public/css/auth-style.css">
+    <link rel="stylesheet" href="/ecommerce/public/css/navbar-style.css">
+
+    <script src="/ecommerce/public/js/auth-script.js" defer></script>
+
+    <script>
+        // Function to toggle forms based on URL
+        function toggleFormBasedOnURL() {
+            const container = document.getElementById('container');
+            const currentPath = window.location.pathname;
+
+            if (currentPath.includes('/auth/admin/register')) {
+                // Show Register Form
+                container.classList.add('right-panel-active');
+            } else if (currentPath.includes('/auth/admin/login')) {
+                // Show Login Form
+                container.classList.remove('right-panel-active');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', toggleFormBasedOnURL);
+    </script>
+</head>
+
+<body>
+    <header>
+        <?php include(APPPATH . 'Views/shared/navbar.php'); ?>
+    </header>
 <div class="container" id="container">
     <!-- Register Form -->
     <div class="form-container sign-up-container">
@@ -72,3 +100,6 @@
         return true;
     }
 </script>
+</body>
+
+</html>
