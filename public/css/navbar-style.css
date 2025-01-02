@@ -1,0 +1,104 @@
+:root {
+  --background-dark: #2d3548;
+  --text-light: rgba(255, 255, 255, 0.6);
+  --text-lighter: rgba(255, 255, 255, 0.9);
+  --theme-col: #2d4bf0;
+  --pure-white: #fff;
+  --text-black: #242424;
+  --spacing-s: 8px;
+  --spacing-m: 16px;
+  --spacing-l: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 64px;
+  --width-container: 1200px;
+}
+
+html {
+  height: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+}
+
+body {
+  height: 100%;
+}
+.btn {
+  height: fit-content;
+  width: 100px;
+  padding: 0.25rem 0.75rem;
+  font-size: 15px;
+  color: var(--text-black);
+  font-weight: 500;
+  border-radius: 0.25rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.p-btn {
+  color: var(--pure-white);
+  border: 2px solid var(--theme-col);
+  background-color: var(--theme-col);
+}
+.p-btn:hover {
+  filter: saturate(0.7);
+}
+.s-btn {
+  color: var(--theme-col);
+  border: 2px solid var(--theme-col);
+  background-color: transparent;
+}
+.navbar {
+  height: 4rem;
+  padding: 0 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed; /* Fix the navbar to the top */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+.logo a {
+  font-size: xx-large;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--text-black);
+}
+.l-initial {
+  color: var(--theme-col);
+}
+.nav-link ul {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.nav-link ul li {
+  margin: 0 0.75rem;
+  margin-top: 0.15rem;
+  padding-bottom: 2px;
+  color: var(--text-black);
+  font-weight: 500;
+  cursor: pointer;
+  line-height: 4rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  list-style: none;
+}
+.nav-link ul li:hover {
+  border-bottom: 2px solid #2d4bf0;
+}
+.nav-link ul li:nth-child(1) {
+  padding: 0;
+  border-bottom: 2px solid var(--theme-col);
+}
+.cta-btn {
+  display: flex;
+}
+.cta-btn .btn {
+  margin: 0 0.25rem;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
