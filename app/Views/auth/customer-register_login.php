@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="/ecommerce/public/css/auth-style.css">
 <link rel="stylesheet" href="/ecommerce/public/css/navbar-style.css">
+<link rel="stylesheet" href="/ecommerce/public/css/auth-style.css">
 <script src="/ecommerce/public/js/auth-script.js" defer></script>
 <?php include(APPPATH . 'Views/shared/navbar.php'); ?>
 <div class="container-wrapper">
