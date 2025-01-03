@@ -29,35 +29,36 @@ class Auth extends BaseController
     }
 
     public function register()
-{
-    if (strtolower($this->request->getMethod()) === 'get') {
-        return view('auth/customer-register_login');
-    }
-
-    if (strtolower($this->request->getMethod()) === 'post') {
-        $data = [
-            'name' => $this->request->getPost('name'),
-            'email' => $this->request->getPost('email'),
-            'password' => password_hash($this->request->getPost('password'), PASSWORD_BCRYPT),
-            'role' => 'customer',
-        ];
-
-        // Directly insert into the database
-        $db = \Config\Database::connect();
-        $builder = $db->table('users');
-
-        if ($builder->insert($data)) {
-            // If insertion is successful, redirect to the login page
-            return redirect()->to('/auth/customer/login')->with('success', 'Registration successful!');
-        } else {
-            // If insertion fails, show an error message
-            return redirect()->back()->with('error', 'Failed to save user data.');
+    {
+        if (strtolower($this->request->getMethod()) === 'get') {
+            return view('auth/customer-register_login');
         }
+    
+        if (strtolower($this->request->getMethod()) === 'post') {
+            $data = [
+                'name' => $this->request->getPost('name'),
+                'email' => $this->request->getPost('email'),
+                'password' => password_hash($this->request->getPost('password'), PASSWORD_BCRYPT),
+                'role' => 'customer',
+            ];
+    
+            $db = \Config\Database::connect();
+            $builder = $db->table('users');
+    
+            if ($builder->insert($data)) {
+                // Set success message in flashdata
+                session()->setFlashdata('success', 'You can now log in.');
+                return redirect()->to('/auth/customer/login');
+            } else {
+                session()->setFlashdata('error', 'Failed to register, please try again.');
+                return redirect()->back();
+            }
+        }
+    
+        echo 'Invalid request method.<br>';
+        exit;
     }
-
-    echo 'Invalid request method.<br>';
-    exit;
-}
+    
 
 
     public function adminLogin()

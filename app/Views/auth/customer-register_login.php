@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="/ecommerce/public/css/auth-style.css">
     <link rel="stylesheet" href="/ecommerce/public/css/navbar-style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <script src="/ecommerce/public/js/auth-script.js" defer></script>
 
@@ -31,11 +32,25 @@
         <?php include(APPPATH . 'Views/shared/navbar.php'); ?>
     </header>
     <div class="container-wrapper">
+
+    <?php if (session()->getFlashdata('success')) : ?>
+    <div class="alert alert-success alert-dismissible">
+        <strong>Registration successful!</strong> <?= session()->getFlashdata('success') ?>
+    </div>
+<?php endif; ?>
+
+<?php if (session()->getFlashdata('error')) : ?>
+    <div class="alert alert-danger alert-dismissible">
+        <strong>Error!</strong> <?= session()->getFlashdata('error') ?>
+    </div>
+<?php endif; ?>
+
+
         <div class="container" id="container">
             <!-- Register Form -->
             <div class="form-container sign-up-container">
 
-            <form action="<?= base_url('auth/customer/register') ?>" method="post">
+                <form action="<?= base_url('auth/customer/register') ?>" method="post">
                     <h1>Create Account</h1>
                     <span>or use your email for registration</span>
                     <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
@@ -106,6 +121,14 @@
             return true;
         }
     </script>
+    <!-- Auto-dismiss Flash Messages -->
+    <script>
+        setTimeout(() => {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => alert.style.display = 'none');
+        }, 10000); // 10 seconds
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
