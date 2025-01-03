@@ -35,7 +35,7 @@ class InventoryController extends Controller
             return redirect()->to('/inventory')->with('success', 'Product added successfully!');
         }
 
-        return view('inventory/create');
+        return view('inventory/add');
     }
 
     public function edit($id)
@@ -129,4 +129,13 @@ class InventoryController extends Controller
 
         return redirect()->to('/inventory')->with('success', 'Product status updated successfully!');
     }
+
+    public function inventoryManagement()
+{
+    $productModel = new ProductModel();
+    $data['products'] = $productModel->findAll(); // Display all products for admins
+
+    return view('inventory/inventoryManagement', $data);
+}
+
 }
