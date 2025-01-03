@@ -46,15 +46,18 @@ class Auth extends BaseController
             ];
 
             $userModel = new UserModel();
-            $userModel->insert($data);
+            if (!$userModel->insert($data)) {
+                error_log(json_encode($userModel->errors())); // Log model errors for debugging
+                return redirect()->back()->with('error', 'Failed to save user data.');
+            }
 
             return redirect()->to('/auth/login')->with('success', 'Registration successful!');
         }
 
-        // Pass userType as 'customer' to the view
         $data['userType'] = 'customer';
         return view('auth/customer-register_login', $data);
     }
+
 
     public function adminLogin()
     {
@@ -96,13 +99,16 @@ class Auth extends BaseController
             ];
 
             $userModel = new UserModel();
-            $userModel->insert($data);
+            if (!$userModel->insert($data)) {
+                error_log(json_encode($userModel->errors())); // Log model errors for debugging
+                return redirect()->back()->with('error', 'Failed to save admin data.');
+            }
 
-            return redirect()->to('/auth/admin/login')->with('success', 'Registration successful!');
+            return redirect()->to('/auth/admin/login')->with('success', 'Admin registration successful!');
         }
 
-        // Pass userType as 'admin' to the view
         $data['userType'] = 'admin';
         return view('auth/admin-register_login', $data);
     }
+
 }

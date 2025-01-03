@@ -31,6 +31,9 @@ $routes->group('auth/admin', function ($routes) {
     $routes->post('login', 'Auth::processAdminLogin');    // Process admin login
     $routes->post('register', 'Auth::processAdminRegister'); // Process admin registration
 });
+$routes->post('auth/register', 'Auth::register');
+$routes->post('auth/admin/register', 'Auth::adminRegister');
+
 
 // Product catalog routes
 // http://localhost/ecommerce/public/products/catalog

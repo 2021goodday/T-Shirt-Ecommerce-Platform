@@ -23,6 +23,9 @@ html {
 body {
   height: 100%;
 }
+.navbar-wrapper {
+  margin-bottom: 4rem;
+}
 
 .navbar-wrapper .btn {
   height: fit-content !important;
@@ -59,11 +62,11 @@ body {
   display: flex !important;
   justify-content: space-between !important;
   align-items: center !important;
-  position: fixed !important; 
+  position: fixed !important;
   top: 0 !important;
   width: 100% !important;
   z-index: 1000 !important;
- /* background-color: var(--background-dark) !important; */
+  /* background-color: var(--background-dark) !important; */
 }
 
 .navbar-wrapper .logo a {
