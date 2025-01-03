@@ -21,6 +21,9 @@ $routes->group('auth/customer', function ($routes) {
     $routes->post('login', 'Auth::login');      // Process customer login
     $routes->post('register', 'Auth::register'); // Process customer registration
 });
+$routes->get('auth/customer/register', 'Auth::register');
+$routes->post('auth/customer/register', 'Auth::register');
+
 
 // Admin login and register routes
 // http://localhost/ecommerce/public/auth/admin/login
@@ -54,3 +57,6 @@ $routes->post('inventory/add', 'InventoryController::create');
 $routes->get('/inventory/edit/(:num)', 'InventoryController::edit/$1');
 $routes->post('/inventory/edit/(:num)', 'InventoryController::edit/$1');
 
+
+$routes->get('test-database', 'Auth::testDatabase');
+$routes->get('test-insert', 'Auth::testInsert');

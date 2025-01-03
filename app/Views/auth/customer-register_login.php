@@ -35,25 +35,23 @@
             <!-- Register Form -->
             <div class="form-container sign-up-container">
 
-                <form action="<?= base_url('auth/register') ?>" method="post" onsubmit="return validatePasswords()">
+            <form action="<?= base_url('auth/customer/register') ?>" method="post">
                     <h1>Create Account</h1>
                     <span>or use your email for registration</span>
-                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>"> <!-- CSRF Token -->
-                    <input type="text" name="name" placeholder="Name" required />
-                    <input type="email" name="email" placeholder="Email" required />
-                    <input type="password" id="password" name="password" placeholder="Password" required />
-                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password"
-                        required />
-                    <span id="passwordError" style="color: red; display: none; padding-bottom: 5px;">Passwords do not
-                        match!</span>
+                    <input type="hidden" name="<?= csrf_token() ?>" value="<?= csrf_hash() ?>">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
                     <button type="submit">Register</button>
                 </form>
+
 
             </div>
 
             <!-- Log In Form -->
             <div class="form-container sign-in-container">
-                
+
                 <form action="<?= base_url('auth/login') ?>" method="post">
                     <h1>Log in</h1>
                     <span>or use your account</span>
