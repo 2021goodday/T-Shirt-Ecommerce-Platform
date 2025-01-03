@@ -15,7 +15,7 @@ class ProductController extends BaseController
         $category = $this->request->getGet('category');
 
         // Build query with filters
-        $query = $productModel;
+        $query = $productModel->where('status', 'active'); // Only include active products
 
         if ($search) {
             $query = $query->like('name', $search);

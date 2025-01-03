@@ -35,3 +35,8 @@ $routes->group('auth/admin', function ($routes) {
 // Product catalog routes
 // http://localhost/ecommerce/public/products/catalog
 $routes->get('products/catalog', 'ProductController::catalog');
+
+$routes->post('/inventory/toggleStatus/(:num)', 'InventoryController::toggleStatus/$1');
+$routes->post('/inventory/updateStatus/(:num)', 'InventoryController::updateStatus/$1');
+$routes->get('inventory', 'InventoryController::inventoryManagement');
+
