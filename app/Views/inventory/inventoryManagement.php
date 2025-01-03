@@ -9,9 +9,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS (Optional for further customization) -->
     <link rel="stylesheet" href="<?= base_url('css/inventory-style.css') ?>">
+    <link rel="stylesheet" href="/ecommerce/public/css/navbar-style.css">
 </head>
 
 <body>
+<header>
+        <?php include(APPPATH . 'Views/shared/navbar.php'); ?>
+    </header>
     <div class="container mt-5">
         <h1 class="text-center mb-4">Inventory Management</h1>
 

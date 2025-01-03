@@ -26,7 +26,7 @@
     </script>
 </head>
 
-<body>
+<body class="auth-page">
     <header>
         <?php include(APPPATH . 'Views/shared/navbar.php'); ?>
     </header>
@@ -40,9 +40,8 @@
                     <input type="text" name="name" placeholder="Name" required />
                     <input type="email" name="email" placeholder="Email" required />
                     <input type="password" id="password" name="password" placeholder="Password" required />
-                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password"
-                        required />
-                    <span id="passwordError" style="color: red; display: none;">Passwords do not match!</span>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" required />
+                    <span id="passwordError" style="color: red; display: none; padding-bottom: 5px;">Passwords do not match!</span>
                     <button type="submit">Register</button>
                 </form>
             </div>
@@ -76,7 +75,6 @@
             </div>
 
             <script>
-                // event listeners for the buttons
                 document.getElementById('signIn').addEventListener('click', function () {
                     window.location.href = 'http://localhost/ecommerce/public/auth/customer/login';
                 });
@@ -102,7 +100,7 @@
             return true;
         }
     </script>
-    <?php include(APPPATH . 'Views/shared/footer.php'); ?>
+
 </body>
 
 </html>
