@@ -60,3 +60,10 @@ $routes->post('/inventory/edit/(:num)', 'InventoryController::edit/$1');
 
 $routes->get('test-database', 'Auth::testDatabase');
 $routes->get('test-insert', 'Auth::testInsert');
+
+// Order management
+// http://localhost/ecommerce/public/admin/orders
+$routes->get('admin/orders', 'AdminOrders::index');
+$routes->post('admin/orders/updateStatus/(:num)', 'AdminOrders::updateStatus/$1');
+// http://localhost/ecommerce/public/customer/orders
+$routes->get('customer/orders', 'CustomerOrders::index');
